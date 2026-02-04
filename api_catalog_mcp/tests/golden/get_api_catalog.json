@@ -1,0 +1,26 @@
+{
+  "specs": [
+    {
+      "specId": "pets",
+      "title": "Pets API",
+      "version": "1.0.0",
+      "description": "API for managing pets.",
+      "filePath": "pets.yaml",
+      "operationCount": 3,
+      "schemaCount": 5,
+      "isValid": true,
+      "validationError": null
+    },
+    {
+      "specId": "store-v2",
+      "title": "Store API",
+      "version": "2.1.0",
+      "description": "Store ordering API.",
+      "filePath": "store.json",
+      "operationCount": 1,
+      "schemaCount": 1,
+      "isValid": true,
+      "validationError": null
+    }
+  ]
+}

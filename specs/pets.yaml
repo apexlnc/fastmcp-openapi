@@ -1,0 +1,108 @@
+openapi: 3.0.3
+info:
+  title: Pets API
+  version: 1.0.0
+  description: API for managing pets.
+paths:
+  /pets:
+    get:
+      operationId: listPets
+      summary: List pets
+      description: Returns all pets.
+      tags:
+        - pets
+      parameters:
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: A paged array of pets
+    post:
+      operationId: createPet
+      summary: Create a pet
+      description: Creates a new pet.
+      tags:
+        - pets
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PetPayload"
+      responses:
+        "201":
+          description: The created pet
+  /pets/{petId}:
+    parameters:
+      - name: petId
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      operationId: getPet
+      summary: Info for a specific pet
+      description: Returns a pet by ID.
+      tags:
+        - pets
+      responses:
+        "200":
+          description: The pet
+components:
+  schemas:
+    Pet:
+      type: object
+      description: A pet in the store.
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+    PetPayload:
+      oneOf:
+        - $ref: "#/components/schemas/Cat"
+        - $ref: "#/components/schemas/Dog"
+      discriminator:
+        propertyName: petType
+        mapping:
+          cat: "#/components/schemas/Cat"
+          dog: "#/components/schemas/Dog"
+    Cat:
+      type: object
+      description: A cat payload.
+      required:
+        - petType
+        - name
+        - lives
+      properties:
+        petType:
+          enum:
+            - cat
+        name:
+          type: string
+        lives:
+          type: integer
+    Dog:
+      type: object
+      description: A dog payload.
+      required:
+        - petType
+        - name
+        - bark
+      properties:
+        petType:
+          enum:
+            - dog
+        name:
+          type: string
+        bark:
+          type: boolean
+    Error:
+      type: object
+      description: An error response.
+      properties:
+        message:
+          type: string

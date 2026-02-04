@@ -1,0 +1,8 @@
+{
+  "intent": "Rotate an API key",
+  "expectedEndpointId": "auth:rotateKey",
+  "topMatches": [
+    "auth:rotateKey",
+    "auth:listKeys"
+  ]
+}

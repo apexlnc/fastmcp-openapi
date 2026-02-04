@@ -1,0 +1,23 @@
+{
+  "endpointId": "pets:createPet",
+  "request": {
+    "body": {
+      "lives": 9,
+      "name": "James Horton",
+      "petType": "cat"
+    },
+    "contentType": "application/json",
+    "method": "post",
+    "parameters": {
+      "header": {},
+      "path": {},
+      "query": {}
+    },
+    "path": "/pets"
+  },
+  "unknownRequiredFields": [
+    "body.lives",
+    "body.name",
+    "body.petType"
+  ]
+}

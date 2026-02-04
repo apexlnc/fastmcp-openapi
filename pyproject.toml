@@ -1,0 +1,59 @@
+[project]
+name = "fastmcp-openapi"
+version = "0.1.0"
+description = "FastMCP OpenAPI catalog server (ReAPI parity)"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "FastMCP OpenAPI" }]
+license = { text = "MIT" }
+dependencies = [
+  "fastmcp<3",
+  "PyYAML>=6.0",
+  "prance>=0.22.11",
+  "openapi-spec-validator>=0.7.1",
+  "Faker>=20.0.0",
+  "httpx>=0.25.0",
+]
+
+[project.optional-dependencies]
+# Test dependencies
+test = ["pytest>=8.0"]
+agents = [
+  "deepagents",
+  "langchain-mcp-adapters",
+  "langchain",
+  "langchain-openai",
+]
+semantic = [
+  "fastembed>=0.2.0",
+  "numpy>=1.26.0",
+]
+dev = [
+  "ruff>=0.6.0",
+  "mypy>=1.11.0",
+  "pyright>=1.1.380",
+  "bandit>=1.7.9",
+]
+
+[tool.mypy]
+python_version = "3.11"
+strict = false
+ignore_missing_imports = true
+
+[tool.pyright]
+typeCheckingMode = "basic"
+reportMissingImports = "none"
+reportMissingTypeStubs = "none"
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["api_catalog_mcp/tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
+
+[dependency-groups]
+dev = [
+    "types-pyyaml>=6.0.12.20250915",
+]

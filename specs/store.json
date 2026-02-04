@@ -1,0 +1,54 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Store API",
+    "version": "2.1.0",
+    "description": "Store ordering API.",
+    "x-spec-id": "store-v2"
+  },
+  "paths": {
+    "/orders": {
+      "get": {
+        "operationId": "listOrders",
+        "summary": "List orders",
+        "description": "Returns all orders.",
+        "tags": ["orders"],
+        "responses": {
+          "200": {"description": "A list of orders"}
+        }
+      }
+    },
+    "/orders/{orderId}": {
+      "get": {
+        "operationId": "getOrder",
+        "summary": "Retrieve an order",
+        "description": "Returns a single order.",
+        "tags": ["orders"],
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "path",
+            "required": true,
+            "schema": {"type": "string"}
+          }
+        ],
+        "responses": {
+          "200": {"description": "An order"}
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Order": {
+        "type": "object",
+        "description": "An order record.",
+        "properties": {
+          "id": {"type": "string"},
+          "total": {"type": "number"}
+        },
+        "required": ["id", "total"]
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "intent": "Create a pet",
+  "expectedEndpointId": "pets:createPet",
+  "topMatches": [
+    "pets:createPet",
+    "pets:listPets",
+    "pets:getPet"
+  ]
+}

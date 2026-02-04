@@ -1,0 +1,14 @@
+# Copy to ~/.codex/config.toml or ./.codex/config.toml
+# Update `cwd` if you want an explicit path.
+
+[mcp_servers.api_catalog]
+command = "./bin/mcp-catalog"
+# cwd = "/absolute/path/to/fastmcp-openapi"
+
+[mcp_servers.api_catalog.env]
+OPENAPI_DIR = "./specs"
+OPENAPI_INDEX_PATH = "./.cache/api_catalog.sqlite"
+OPENAPI_DEREF_MODE = "lazy"
+OPENAPI_WATCH = "1"
+OPENAPI_WATCH_INTERVAL = "2"
+# OPENAPI_SEMANTIC = "1"

@@ -1,0 +1,42 @@
+{
+  "query": "pets",
+  "audience": "external",
+  "matches": [
+    {
+      "endpointId": "pets:listPets",
+      "specId": "pets",
+      "operationId": "listPets",
+      "method": "get",
+      "path": "/pets",
+      "summary": "List pets",
+      "description": "Returns all pets.",
+      "tags": ["pets"],
+      "score": -1.947686116700201e-06,
+      "matchSnippet": "listPets get /[pets] List [pets] Returns all [pets]. [pets]"
+    },
+    {
+      "endpointId": "pets:createPet",
+      "specId": "pets",
+      "operationId": "createPet",
+      "method": "post",
+      "path": "/pets",
+      "summary": "Create a pet",
+      "description": "Creates a new pet.",
+      "tags": ["pets"],
+      "score": -1.6923076923076922e-06,
+      "matchSnippet": "createPet post /[pets] Create a pet Creates a new pet. [pets]"
+    },
+    {
+      "endpointId": "pets:getPet",
+      "specId": "pets",
+      "operationId": "getPet",
+      "method": "get",
+      "path": "/pets/{petId}",
+      "summary": "Info for a specific pet",
+      "description": "Returns a pet by ID.",
+      "tags": ["pets"],
+      "score": -1.5921052631578949e-06,
+      "matchSnippet": "getPet get /[pets]/{petId} Info for a specific pet Returns a pet..."
+    }
+  ]
+}

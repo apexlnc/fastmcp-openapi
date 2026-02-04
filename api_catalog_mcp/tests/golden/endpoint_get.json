@@ -1,0 +1,80 @@
+{
+  "description": "Creates a new pet.",
+  "endpointId": "pets:createPet",
+  "method": "post",
+  "operationId": "createPet",
+  "parameters": [],
+  "path": "/pets",
+  "requestBody": {
+    "content": {
+      "application/json": {
+        "schema": {
+          "discriminator": {
+            "mapping": {
+              "cat": "#/components/schemas/Cat",
+              "dog": "#/components/schemas/Dog"
+            },
+            "propertyName": "petType"
+          },
+          "oneOf": [
+            {
+              "description": "A cat payload.",
+              "properties": {
+                "lives": {
+                  "type": "integer"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "petType": {
+                  "enum": [
+                    "cat"
+                  ]
+                }
+              },
+              "required": [
+                "petType",
+                "name",
+                "lives"
+              ],
+              "type": "object"
+            },
+            {
+              "description": "A dog payload.",
+              "properties": {
+                "bark": {
+                  "type": "boolean"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "petType": {
+                  "enum": [
+                    "dog"
+                  ]
+                }
+              },
+              "required": [
+                "petType",
+                "name",
+                "bark"
+              ],
+              "type": "object"
+            }
+          ]
+        }
+      }
+    },
+    "required": true
+  },
+  "responses": {
+    "201": {
+      "description": "The created pet"
+    }
+  },
+  "specId": "pets",
+  "summary": "Create a pet",
+  "tags": [
+    "pets"
+  ]
+}

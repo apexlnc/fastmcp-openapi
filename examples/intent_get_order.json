@@ -1,0 +1,8 @@
+{
+  "intent": "Get an order by ID",
+  "expectedEndpointId": "store-v2:getOrder",
+  "topMatches": [
+    "store-v2:getOrder",
+    "store-v2:listOrders"
+  ]
+}
